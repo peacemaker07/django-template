@@ -1,4 +1,4 @@
-# Django Template
+# Template for Django study
 
 Django for study
 
