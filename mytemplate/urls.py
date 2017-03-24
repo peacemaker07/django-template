@@ -22,6 +22,6 @@ urlpatterns = [
     # accounts
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     
-    # cmn
-    url(r'^cmn/', include('cmn.urls', namespace='cmn')),
+    # html_css
+    url(r'^html_css/', include('html_css.urls', namespace='html_css')),
 ]
