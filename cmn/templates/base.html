@@ -1,0 +1,85 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>{% block title %}テンプレート{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{% static 'cmn/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'cmn/css/bootstrap-theme.min.css' %}" rel="stylesheet">
+        <link href="{% static 'cmn/css/style.css' %}" rel="stylesheet">
+        <script src="{% static 'cmn/js/jquery-3.2.0.min.js' %}"></script>
+        <script src="{% static 'cmn/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'cmn/js/common.js' %}"></script>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'datepicker/css/bootstrap-datepicker.min.css' %}">
+        <script type="text/javascript" src="{% static 'datepicker/js/bootstrap-datepicker.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'datepicker/locales/bootstrap-datepicker.ja.min.js' %}"></script>
+
+        <style>
+            body { padding-top: 60px; }
+            .navbar { min-height: 20px; }
+            .navbar-brand { font-size: 16px; }
+        </style>
+
+        {% block extrahead %}{% endblock %}
+    </head>
+
+    <body>
+
+        <div class="wrap">
+            <div class="header_wrap">
+                <nav class="navbar navbar-default navbar-fixed-top">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#">テンプレート</a>
+
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-content">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                        </div>
+                        <div id="nav-content" class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                {% if not request.user.is_anonymous %}
+                                <li>
+                                    <a href="">ユーザ：{{ user.get_full_name|default:user.username }}</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'accounts:logout' %}?next={{ request.path }}">Logout</a>
+                                </li>
+                                {% else %}
+                                <li>
+                                    <a href="{% url 'accounts:create' %}">ユーザ登録はこちら</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="content_wrap">
+                <div class="container main-content">
+                    {% block content %}
+                        {{ content }}
+                    {% endblock %}
+                </div>
+            </div>
+
+            <div class="footer_wrap" style="margin-top: 30px">
+                <nav class="navbar navbar-default navbar-fixed-bottom">
+                    <div class="container-fluid text-center">
+                        <small>Copyright (C) 2017 All Rights Reserved.</small>
+                    </div>
+                </nav>
+            </div>
+
+        </div>
+
+    </body>
+</html>

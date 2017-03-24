@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}ユーザ登録{% endblock title %}
+
+{% block content %}
+<form action="{% url 'accounts:create' %}" method="POST">
+    <div class="row">
+        <div class="col-sm-5 offset-sm-1">
+            <div class="card">
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                            {{ form.username }}
+                            {{ form.username.errors }}
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                            {{ form.email }}
+                            {{ form.email.errors }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                            {{ form.password1 }}
+                            {{ form.password1.errors }}
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                            {{ form.password2 }}
+                            {{ form.password2.errors }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                            {{ form.last_name }}
+                            {{ form.last_name.errors }}
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                            {{ form.first_name }}
+                            {{ form.first_name.errors }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                            {{ form.section }}
+                            {{ form.section.errors }}
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                            {{ form.position }}
+                            {{ form.position.errors }}
+                            </div>
+                        </div>
+                    </div>
+                    {% csrf_token %}
+                    <div class="btn_group">
+                        <button type="submit" class="btn btn-sm btn-primary btn-outline-primary">登録</button>
+                        <a href="{% url 'accounts:login' %}" class="btn btn-default btn-sm btn_back">キャンセル</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

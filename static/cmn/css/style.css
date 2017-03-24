@@ -1,0 +1,11 @@
+[class^="col-xs-"], [class*=" col-xs-"],
+[class^="col-sm-"], [class*=" col-sm-"],
+[class^="col-md-"], [class*=" col-md-"],
+[class^="col-lg-"], [class*=" col-lg-"] {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.section {
+    margin-top: 20px;
+}
