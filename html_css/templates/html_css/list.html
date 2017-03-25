@@ -20,7 +20,7 @@
 
 {% block content %}
 
-    <div class="section title">
+    <div class="title">
         <h3 class="page-header">
             テスト
         </h3>
@@ -29,15 +29,16 @@
     <div class="contents_wrap">
         <div class="section contents1">
             <ul>
-                <li>111</li>
-                <li>222</li>
+                <li id="contens1_num1">111</li>
+                <li id="contens1_num2">222</li>
             </ul>
+            <p>コンテンツ１（pタグ）</p>
         </div>
 
         <div class="section contents2">
-            <ul>
-                <li>aaa</li>
-                <li>bbb</li>
+            <ul >
+                <li class="color_red">aaa</li>
+                <li class="color_red">bbb</li>
             </ul>
             <ul>
                 <li>ccc</li>
@@ -58,6 +59,9 @@
                 <li>EEE</li>
                 <li>FFF</li>
             </ul>
+            <p>コンテンツ３（pタグ）</p>
+
+            <input type="text" value="abc">
         </div>
     </div>
 
